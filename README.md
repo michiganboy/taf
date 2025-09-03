@@ -153,6 +153,24 @@ Test data files contain **static data used during test execution**:
 }
 ```
 
+### **Combined Test Data**
+```json
+// This is what the combined data object looks like when using @data:admin_login
+{
+  "expectedTitle": "Login - Administrator",
+  "expectedRedirect": "/admin/dashboard",
+  "expectedWelcomeMessage": "Welcome, Administrator",
+  "loginErrorMessage": "Invalid credentials",
+  "loginSuccessMessage": "Welcome back!",
+  "formValidationMessages": {
+    "usernameRequired": "Username is required",
+    "passwordRequired": "Password is required"
+  },
+  "expectedPermissions": ["user_management", "system_config"],
+  "scenarioType": "admin_login"
+}
+```
+
 ### **What Goes in Test Data Files**
 - **Expected results** (success messages, redirect URLs, page titles)
 - **Form validation messages** (error messages, required field messages)
@@ -254,7 +272,6 @@ The framework automatically detects which feature you're testing and loads the c
   }
 }
 ```
-```
 
 ### **Scenario-Specific Test Data**
 ```json
@@ -272,6 +289,24 @@ The framework automatically detects which feature you're testing and loads the c
   "expectedRedirect": "/admin/dashboard",           // ← OVERRIDES default.json
   "expectedWelcomeMessage": "Welcome, Administrator", // ← OVERRIDES default.json
   "expectedPermissions": ["user_management", "system_config"]
+}
+```
+
+### **Combined Test Data**
+```json
+// This is what the combined data object looks like when using @data:admin_login
+{
+  "expectedTitle": "Login - Administrator",
+  "expectedRedirect": "/admin/dashboard",
+  "expectedWelcomeMessage": "Welcome, Administrator",
+  "loginErrorMessage": "Invalid credentials",
+  "loginSuccessMessage": "Welcome back!",
+  "formValidationMessages": {
+    "usernameRequired": "Username is required",
+    "passwordRequired": "Password is required"
+  },
+  "expectedPermissions": ["user_management", "system_config"],
+  "scenarioType": "admin_login"
 }
 ```
 
