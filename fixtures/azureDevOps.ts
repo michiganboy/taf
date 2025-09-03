@@ -67,7 +67,7 @@ export class AzureDevOpsReporter {
     const testRun = {
       name: `Automated Test Run - ${new Date().toISOString()}`,
       automated: true,
-      plan: { id: 1 }, // Replace with your actual test plan ID
+      plan: { id: parseInt(process.env.AZURE_TEST_PLAN_ID || '1') }, // Configurable test plan ID
       results: this.testResults.map(result => ({
         testCase: { id: result.testCaseId },
         outcome: result.outcome,

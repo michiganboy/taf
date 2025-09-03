@@ -9,7 +9,10 @@ dotenv.config({ path: path.resolve(__dirname, `env/.${environment}.env`) });
 console.log(`Running tests in ${environment} environment`);
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './features',
+  testMatch: [
+    '**/*.feature'
+  ],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,

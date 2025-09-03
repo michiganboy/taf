@@ -1,0 +1,11 @@
+{
+  "expectedTitle": "Login - Example App",
+  "expectedRedirect": "/dashboard",
+  "expectedWelcomeMessage": "Welcome back!",
+  "loginErrorMessage": "Invalid credentials",
+  "loginSuccessMessage": "Welcome back!",
+  "formValidationMessages": {
+    "usernameRequired": "Username is required",
+    "passwordRequired": "Password is required"
+  }
+}

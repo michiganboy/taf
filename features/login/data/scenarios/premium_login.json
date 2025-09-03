@@ -1,0 +1,6 @@
+{
+  "expectedRedirect": "/premium/dashboard",
+  "expectedWelcomeMessage": "Welcome, Premium Member!",
+  "expectedPermissions": ["view_profile", "edit_profile", "premium_features"],
+  "userType": "premium_user"
+}

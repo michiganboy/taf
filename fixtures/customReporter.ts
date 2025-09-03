@@ -31,11 +31,29 @@ class CustomReporter implements Reporter {
     // Extract Azure DevOps test case ID from test annotations
     const testCaseId = test.annotations.find(a => a.type === 'azureTestCaseId')?.description || '';
     
-    // Extract User Story and Feature from test title
-    const userStoryMatch = test.title.match(/@US(\d+)/);
-    const featureMatch = test.title.match(/@feature:(\w+)/);
-    const userStory = userStoryMatch ? userStoryMatch[1] : '';
-    const feature = featureMatch ? featureMatch[1] : '';
+    // Extract User Story and Feature from test annotations and title
+    let userStory = '';
+    let feature = '';
+    
+    // First try to find in annotations (Cucumber scenario tags)
+    const userStoryAnnotation = test.annotations.find(a => a.type === 'tag' && a.description?.startsWith('@US'));
+    const featureAnnotation = test.annotations.find(a => a.type === 'tag' && a.description?.startsWith('@feature:'));
+    
+    if (userStoryAnnotation) {
+      userStory = userStoryAnnotation.description?.replace('@US', '') || '';
+    } else {
+      // Fallback to title parsing for classic Playwright tests
+      const userStoryMatch = test.title.match(/@US(\d+)/);
+      userStory = userStoryMatch ? userStoryMatch[1] : '';
+    }
+    
+    if (featureAnnotation) {
+      feature = featureAnnotation.description?.replace('@feature:', '') || '';
+    } else {
+      // Fallback to title parsing for classic Playwright tests
+      const featureMatch = test.title.match(/@feature:(\w+)/);
+      feature = featureMatch ? featureMatch[1] : '';
+    }
 
     // Map test steps to the format expected by AzureDevOpsReporter
     const steps = result.steps.map(step => ({

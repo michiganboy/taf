@@ -1,0 +1,7 @@
+{
+  "expectedTitle": "Login - Administrator",
+  "expectedRedirect": "/admin/dashboard",
+  "expectedWelcomeMessage": "Welcome, Administrator",
+  "expectedPermissions": ["user_management", "system_config"],
+  "scenarioType": "admin_login"
+}
