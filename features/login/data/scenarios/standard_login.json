@@ -1,6 +1,5 @@
 {
   "expectedTitle": "Login - Standard User",
   "expectedRedirect": "/dashboard",
-  "expectedWelcomeMessage": "Welcome back!",
-  "scenarioType": "standard_user_login"
+  "expectedWelcomeMessage": "Welcome back!"
 }

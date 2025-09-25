@@ -3,20 +3,29 @@
   "version": "1.0.0",
   "description": "Test Automation Framework",
   "main": "index.js",
+  "bin": {
+    "taf": "dist/utils/cli.js"
+  },
   "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
     "test": "ts-node utils/run-tests.ts",
-    "open-report": "open test-results/custom-report.html"
+    "open-report": "open test-results/custom-report.html",
+    "cli": "ts-node utils/cli.ts",
+    "taf": "node dist/utils/cli.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "enquirer": "^2.4.1"
+  },
   "devDependencies": {
     "@playwright/test": "^1.45.3",
-    "@types/minimist": "^1.2.5",
     "@types/node": "^22.0.0",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
-    "minimist": "^1.2.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.0",
     "playwright-bdd": "^4.0.0",
